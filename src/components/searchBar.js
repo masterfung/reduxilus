@@ -5,7 +5,7 @@ export default class SearchBar extends Component {
     super(props);
 
     this.state = {
-      term: ''
+      searchTerm: ''
     }
   }
 
@@ -14,12 +14,13 @@ export default class SearchBar extends Component {
       <div className="col-md-12">
         <div className="input-group">
           <input type="text"
-            value = {this.state.term}
+            value = {this.state.searchTerm}
             onChange={this.onInputChange}
             className="form-control"
             placeholder="Search videos..." />
           <span className="input-group-btn">
-            <button className="btn btn-primary" type="button">Search</button>
+            <button className="btn btn-primary"
+                    type="button">Search</button>
           </span>
         </div>
       </div>
@@ -27,6 +28,6 @@ export default class SearchBar extends Component {
   }
 
   onInputChange = (event) => {
-    this.setState({term: event.target.value});
+    this.setState({searchTerm: event.target.value});
   }
 }
