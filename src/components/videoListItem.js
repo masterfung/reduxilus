@@ -2,7 +2,7 @@ import React from 'react';
 import VideoDetail from './videoDetail';
 
 const VideoListItem = ({video, onVideoSelect}) => {
-  const imageUrl = video.snippet.thumbnails.default.url;
+  const imageUrl = video.snippet.thumbnails.high.url;
 
   return (
     <li className="list-group-item" onClick={() => onVideoSelect(video)}>
@@ -13,7 +13,7 @@ const VideoListItem = ({video, onVideoSelect}) => {
 
         <div className="media-body">
           <div className="media-heading">
-            <h3>{video.snippet.title}</h3>
+            <h5>{video.snippet.title}</h5>
           </div>
         </div>
       </div>
