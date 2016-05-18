@@ -4,30 +4,25 @@ export default class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      searchTerm: ''
-    }
+    this.state = {term: ''};
   }
 
   render() {
     return (
       <div className="col-md-12">
-        <div className="input-group">
+        <div className="input-group search-bar">
           <input type="text"
-            value = {this.state.searchTerm}
-            onChange={this.onInputChange}
+            value = {this.state.term}
+            onChange={event => this.onInputChange(event.target.value)}
             className="form-control"
             placeholder="Search videos..." />
-          <span className="input-group-btn">
-            <button className="btn btn-primary"
-                    type="button">Search</button>
-          </span>
         </div>
       </div>
     )
   }
 
-  onInputChange = (event) => {
-    this.setState({searchTerm: event.target.value});
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term);
   }
 }
