@@ -12,7 +12,7 @@
   ],
   "repository": "git@github.com:masterfung/reduxilus.git",
   "scripts": {
-    "build": "webpack --config ./webpack.prod.config.js --progress --colors",
+    "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
     "start": "node ./app.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
