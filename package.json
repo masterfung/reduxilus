@@ -4,6 +4,10 @@
   "description": "",
   "author": "",
   "main": "index.js",
+  "engines": {
+    "node": "5.8.0"
+  },
+  "keywords": ["react, ES6, webpack, youtube, redux"],
   "repository": "git@github.com:masterfung/reduxilus.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
