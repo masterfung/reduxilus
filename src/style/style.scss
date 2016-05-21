@@ -1,0 +1,30 @@
+.text-center {
+  text-align: center;
+}
+
+.video-detail, .video-content, .loading-text {
+  padding-top: 25px;
+}
+
+.video-list img {
+  max-width: 128px;
+}
+
+.video-detail .details {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.list-group-item {
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.search-bar {
+  padding: 25px;
+}
