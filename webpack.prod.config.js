@@ -4,15 +4,14 @@ const webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
 
-
   entry: [
-    './src/index.js'
+    './src/index'
   ],
 
   output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js',
+    publicPath: '/public/'
   },
 
 
