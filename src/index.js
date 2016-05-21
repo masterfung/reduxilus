@@ -1,5 +1,3 @@
-import './style/style.scss';
-
 import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -8,6 +6,8 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/searchBar';
 import VideoList from './components/videoList';
 import VideoDetail from './components/videoDetail';
+
+import './styles/style.scss';
 
 const API_KEY = 'AIzaSyBs3VQE2nFE3d4G655bavpQMPdXweit7T0';
 
