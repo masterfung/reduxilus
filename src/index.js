@@ -6,6 +6,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/searchBar';
 import VideoList from './components/videoList';
 import VideoDetail from './components/videoDetail';
+import Footer from './components/footer';
 
 import './styles/style.scss';
 
@@ -40,13 +41,16 @@ class App extends Component {
     }, 700);
 
     return (
-      <div className="row">
-        <h1 className="text-center  ">Welcome to Reduxilus</h1>
-        <SearchBar onSearchTermChange={searchVideo} />
-        <VideoDetail video={this.state.selectedVideo }/>
-        <VideoList
-            onVideoSelect= {selectedVideo => this.setState({selectedVideo})}
-            videos = {this.state.videos} />
+      <div>
+        <div className="row">
+          <h1 className="text-center  ">Welcome to Reduxilus</h1>
+          <SearchBar onSearchTermChange={searchVideo} />
+          <VideoDetail video={this.state.selectedVideo }/>
+          <VideoList
+              onVideoSelect= {selectedVideo => this.setState({selectedVideo})}
+              videos = {this.state.videos} />
+        </div>
+        <Footer />
       </div>
     )
   }
