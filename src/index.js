@@ -6,6 +6,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/searchBar';
 import VideoList from './components/videoList';
 import VideoDetail from './components/videoDetail';
+import HeaderBar from './components/headerBar';
 import Footer from './components/footer';
 
 import './styles/style.scss';
@@ -42,18 +43,21 @@ class App extends Component {
 
     return (
       <div>
-        <div className="row">
-          <h1 className="text-center  ">Welcome to Reduxilus</h1>
-          <SearchBar onSearchTermChange={searchVideo} />
-          <VideoDetail video={this.state.selectedVideo }/>
-          <VideoList
-              onVideoSelect= {selectedVideo => this.setState({selectedVideo})}
-              videos = {this.state.videos} />
+        <HeaderBar />
+        <div className="container">
+          <div className="row main-app">
+              <h1 className="text-center ">Welcome to Reduxilus</h1>
+              <SearchBar onSearchTermChange={searchVideo} />
+              <VideoDetail video={this.state.selectedVideo }/>
+              <VideoList
+                  onVideoSelect= {selectedVideo => this.setState({selectedVideo})}
+                  videos = {this.state.videos} />
+          </div>
         </div>
-        <Footer />
+      <Footer />  
       </div>
     )
   }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.bg-faded'));
