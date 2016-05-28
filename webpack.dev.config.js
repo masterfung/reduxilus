@@ -1,18 +1,18 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
 
   entry: [
-    'webpack-hot-middleware/client',
+    'webpack-hot-middleware/client?reload=true',
     './src/index.js'
   ],
 
   output: {
-    path: path.join(__dirname, 'public'),
-    publicPath: '/public/',
-    filename: 'bundle.js'
+    path: path.join(__dirname, '/public/'),
+    publicPath: '/',
+    filename: '[name].js'
   },
 
   module: {
@@ -33,7 +33,10 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
   ],
 
   resolve: {
