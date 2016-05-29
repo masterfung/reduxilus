@@ -11,15 +11,16 @@ const HeaderBar = () => {
             <div className="collapse navbar-toggleable-sm" id="collapsingNavbar">
                 <ul className="nav navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link page-scroll" href="#themes">About</a>
+                        <a className="nav-link page-scroll" href="#about">About</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link page-scroll" href="#snippets">Contact</a>
+                        <a className="nav-link page-scroll" href="#contact">Contact</a>
                     </li>
                 </ul>
                 <ul className="nav navbar-nav pull-xs-right">
                     <li className="nav-item">
-                        <a className="nav-link page-scroll" data-toggle="modal" title="A free Bootstrap theme" href="#aboutModal">Log In</a>
+                        <a className="nav-link page-scroll" data-toggle="modal"
+                          title="Youtube React" href="#aboutModal">Log In</a>
                     </li>
                 </ul>
             </div>
