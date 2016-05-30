@@ -13,6 +13,12 @@ import './styles/style.scss';
 
 const API_KEY = 'AIzaSyBs3VQE2nFE3d4G655bavpQMPdXweit7T0';
 
+const searchableTopics = [
+  'cute dogs', 'us politics', 'snl',
+  'cute cats', 'marvel', 'dc', 'diy',
+  'game of thrones', 'science', 'historical events'
+];
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +28,9 @@ class App extends Component {
       selectedVideo: null
     }
 
-    this.searchVideo('cute dogs');
+    const selection = Math.floor(Math.random() * searchableTopics.length);
+
+    this.searchVideo(selection);
   }
 
   searchVideo(term) {
@@ -54,7 +62,7 @@ class App extends Component {
                   videos = {this.state.videos} />
           </div>
         </div>
-      <Footer />  
+      <Footer />
       </div>
     )
   }
