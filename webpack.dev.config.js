@@ -1,12 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'eval-source-map',
 
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    './src/index.js'
+    path.join(__dirname, 'src/index.js')
   ],
 
   output: {
@@ -19,7 +20,10 @@ module.exports = {
     loaders: [
       { test: /\.js?$/,
         loader: 'babel',
-        include: path.join(__dirname, 'src')
+        exclude: /node_modules/,
+        query: {
+          "presets": ["react", "es2015", "stage-1", "react-hmre"]
+        }
       },
       { test: /\.scss?$/,
         loader: 'style!css!sass',
@@ -32,14 +36,12 @@ module.exports = {
   },
 
   plugins: [
+    new HtmlWebpackPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     })
-  ],
-
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  }
+  ]
 };

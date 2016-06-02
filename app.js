@@ -9,12 +9,23 @@ if (process.env.NODE_ENV !== 'production') {
   const config = require('./webpack.dev.config.js');
   const compiler = webpack(config);
 
-  app.use(webpackHotMiddleware(compiler));
   app.use(webpackDevMiddleware(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath
+    publicPath: config.output.publicPath,
+    contentBase: 'src',
+    stats: {
+      colors: true,
+      hash: false,
+      timings: true,
+      chunks: false,
+      chunkModules: false,
+      modules: false
+    }
   }));
 }
 
-app.listen(port);
-console.log(`Listening at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', function onStart(err) {
+  if (err) {
+    console.log(err);
+  }
+  console.info(`==> 🌎 Listening on port ${port}. Go http://0.0.0.0:${port}`);
+});
